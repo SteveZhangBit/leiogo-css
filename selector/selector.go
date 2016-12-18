@@ -41,6 +41,10 @@ func (e *Elements) Child(str string) *Elements {
 	return e.selectorHelper(str, e.child)
 }
 
+func (e *Elements) Not(str string) *Elements {
+	return e.selectorHelper(str, e.not)
+}
+
 func (e *Elements) Next(str string) *Elements {
 	return e.selectorHelper(str, e.next)
 }
@@ -141,6 +145,10 @@ func (e *Elements) selectorHelper2(ast parser.AST, f func(n *node.Node, query pa
 
 func (e *Elements) child(ast parser.AST) *Elements {
 	return e.selectorHelper2(ast, node.Child)
+}
+
+func (e *Elements) not(ast parser.AST) *Elements {
+	return e.selectorHelper2(ast, node.Not)
 }
 
 func (e *Elements) next(ast parser.AST) *Elements {

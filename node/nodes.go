@@ -31,6 +31,16 @@ func Child(n *Node, query parser.Element) []*Node {
 	return nodes
 }
 
+func Not(n *Node, query parser.Element) []*Node {
+	nodes := []*Node{}
+	for c := (*Node)(n.FirstChild); c != nil; c = (*Node)(c.NextSibling) {
+		if c.Type == html.ElementNode && !c.IsMatch(query) {
+			nodes = append(nodes, c)
+		}
+	}
+	return nodes
+}
+
 func Next(n *Node, query parser.Element) []*Node {
 	nodes := []*Node{}
 	for s := (*Node)(n.NextSibling); s != nil; s = (*Node)(s.NextSibling) {
