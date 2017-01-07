@@ -143,7 +143,7 @@ func (l *Lexer) NextToken() (token Token, err error) {
 				id := []rune{c}
 				for {
 					if c, err = l.getRune(); err == nil &&
-						(unicode.IsLetter(c) || c == '_' || unicode.IsDigit(c)) {
+						(unicode.IsLetter(c) || c == '_' || c == '-' || unicode.IsDigit(c)) {
 						id = append(id, c)
 					} else {
 						l.i-- // push back a rune

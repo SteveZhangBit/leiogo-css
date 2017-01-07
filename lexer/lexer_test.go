@@ -56,7 +56,7 @@ func Test2(t *testing.T) {
 func Test3(t *testing.T) {
 	if ok, err :=
 		ParseTest(
-			"a#id  >  img.cls1.cls2",
+			"a#id  >  img.cls1.cls-2",
 			Token{Type: Identifier, Value: "a"},
 			Token{Type: Sharp},
 			Token{Type: Identifier, Value: "id"},
@@ -67,7 +67,7 @@ func Test3(t *testing.T) {
 			Token{Type: Dot},
 			Token{Type: Identifier, Value: "cls1"},
 			Token{Type: Dot},
-			Token{Type: Identifier, Value: "cls2"},
+			Token{Type: Identifier, Value: "cls-2"},
 			Token{Type: EOF}); !ok {
 		t.Error(err)
 	}
