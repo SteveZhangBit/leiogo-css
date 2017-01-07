@@ -1,7 +1,7 @@
 package node
 
 import (
-	"github.com/SteveZhangBit/css/parser"
+	"github.com/SteveZhangBit/leiogo-css/parser"
 	"golang.org/x/net/html"
 	"strings"
 )

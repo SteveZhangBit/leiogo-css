@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/SteveZhangBit/css/lexer"
+	"github.com/SteveZhangBit/leiogo-css/lexer"
 )
 
 type Parser struct {

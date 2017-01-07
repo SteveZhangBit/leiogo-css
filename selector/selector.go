@@ -3,8 +3,8 @@ package selector
 import (
 	"strings"
 
-	"github.com/SteveZhangBit/css/node"
-	"github.com/SteveZhangBit/css/parser"
+	"github.com/SteveZhangBit/leiogo-css/node"
+	"github.com/SteveZhangBit/leiogo-css/parser"
 	"golang.org/x/net/html"
 )
 
