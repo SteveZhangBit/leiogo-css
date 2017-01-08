@@ -23,7 +23,7 @@ func Test2(t *testing.T) {
 }
 
 func Test3(t *testing.T) {
-	test(t, ".cls")
+	test(t, ".cls-2")
 }
 
 func Test4(t *testing.T) {

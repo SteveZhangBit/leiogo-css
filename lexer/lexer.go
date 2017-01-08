@@ -151,7 +151,7 @@ func (l *Lexer) NextToken() (token Token, err error) {
 					}
 				}
 			} else {
-				return Token{}, errors.New("Unexpected rune: " + string(c))
+				return Token{Value: string(c)}, errors.New("Unexpected rune: " + string(c))
 			}
 		}
 	case status1:
