@@ -1,9 +1,10 @@
 package node
 
 import (
+	"strings"
+
 	"github.com/SteveZhangBit/leiogo-css/parser"
 	"golang.org/x/net/html"
-	"strings"
 )
 
 type Node html.Node
