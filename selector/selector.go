@@ -1,6 +1,8 @@
 package selector
 
 import (
+	"errors"
+	"fmt"
 	"strings"
 
 	"github.com/SteveZhangBit/leiogo-css/node"
@@ -30,6 +32,52 @@ func (e *Elements) selectorHelper(str string, f func(ast parser.AST) *Elements) 
 		return e
 	} else {
 		return f(ast)
+	}
+}
+
+func (e *Elements) Iterator() (iter []*Elements) {
+	if e.Err != nil {
+		return
+	}
+	for _, n := range e.Nodes {
+		iter = append(iter, &Elements{Nodes: []*node.Node{n}})
+	}
+	return
+}
+
+func (e *Elements) Get(i int) *Elements {
+	if e.Err != nil {
+		return e
+	}
+	if i < len(e.Nodes) {
+		return &Elements{Nodes: []*node.Node{e.Nodes[i]}}
+	} else {
+		e.Err = errors.New(fmt.Sprintf("Get index %d out of range %d", i, len(e.Nodes)))
+		return e
+	}
+}
+
+func (e *Elements) First() *Elements {
+	if e.Err != nil {
+		return e
+	}
+	if len(e.Nodes) > 0 {
+		return &Elements{Nodes: []*node.Node{e.Nodes[0]}}
+	} else {
+		e.Err = errors.New("The list is empty")
+		return e
+	}
+}
+
+func (e *Elements) Last() *Elements {
+	if e.Err != nil {
+		return e
+	}
+	if len(e.Nodes) > 0 {
+		return &Elements{Nodes: []*node.Node{e.Nodes[len(e.Nodes)-1]}}
+	} else {
+		e.Err = errors.New("The list is empty")
+		return e
 	}
 }
 

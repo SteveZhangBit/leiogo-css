@@ -198,6 +198,8 @@ func (n *Node) Text() string {
 	for c := (*Node)(n.FirstChild); c != nil; c = (*Node)(c.NextSibling) {
 		if c.Type == html.TextNode {
 			s += c.Data
+		} else if c.Type == html.ElementNode {
+			s += c.Text()
 		}
 	}
 	return s
